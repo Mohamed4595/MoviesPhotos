@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Movies Photos"
+include ':app'
+include ':core'
+include ':constants'
+include ':components'
+include ':splash'
+include ':splash:presentation'
+include ':moviesList'
+include ':movieslist:domain'
+include ':movieslist:data'
+include ':movieslist:interactors'
+include ':movieslist:presentation'
+include ':fullScreenView'
+include ':fullScreenView:presentation'
