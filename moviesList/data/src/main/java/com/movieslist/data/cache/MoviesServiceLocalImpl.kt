@@ -13,12 +13,12 @@ import com.movieslist.domain.MoviesServiceLocal
 class MoviesServiceLocalImpl(private val dao: MovieDao) : MoviesServiceLocal {
 
     override suspend fun getLocalMovies(
-        page: Int, totalResultsRemote: Int?,
+        page: Int, pageSize: Int, totalResultsRemote: Int?,
         totalPagesRemote: Int?
     ): ApiResponse<Pagination<Movie>> {
         return try {
             val totalResult = dao.getAllMoviesCount()
-            val response = dao.getMovies(page = page)
+            val response = dao.getMovies(page = page,pageSize)
             val pagination = Pagination(
                 page = page,
                 totalResults = totalPagesRemote ?: totalResult,

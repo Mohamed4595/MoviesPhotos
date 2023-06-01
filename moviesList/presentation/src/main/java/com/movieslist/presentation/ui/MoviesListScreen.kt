@@ -19,6 +19,7 @@ import com.mhmd.components.EmptyView
 import com.mhmd.components.MoviesTopAppBar
 import com.mhmd.components.PaginatedLazyVerticalGrid
 import com.mhmd.components.R
+import com.mhmd.constants.NetworkConstants.AD_IMAGE_URL
 import com.mhmd.core.domain.ProgressBarState
 import com.mhmd.core.domain.UiState
 import com.movieslist.domain.Movie
@@ -61,7 +62,7 @@ fun MoviesListScreen(
                 if (uiState is UiState.Success) {
                     AnimatedVisibility(visible = true) {
 
-                        uiState.state.movies.PaginatedLazyVerticalGrid(
+                        uiState.state.moviesWithAds.PaginatedLazyVerticalGrid(
                             modifier = Modifier.fillMaxSize(),
                             onLoadMore = {
                                 events(MoviesListEvents.GetNextPageMovies)

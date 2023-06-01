@@ -11,7 +11,7 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.mhmd.moviesphotos.R
 import com.mhmd.moviesphotos.ui.navigation.Screen
-import com.mhmd.moviesphotos.ui.navigation.addMovesList
+import com.mhmd.moviesphotos.ui.navigation.addMoviesList
 import com.mhmd.moviesphotos.ui.navigation.addMoviePhotoFull
 import com.mhmd.moviesphotos.ui.navigation.addSplash
 import com.mhmd.moviesphotos.ui.theme.EPLTheme
@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                                 navController = navController,
                                 width = constraints.maxWidth / 2
                             )
-                            addMovesList(
+                            addMoviesList(
                                 navController = navController,
                                 imageLoader = imageLoader.value,
                                 width = constraints.maxWidth / 2,

@@ -1,5 +1,6 @@
 package com.movieslist.interactors
 
+import com.mhmd.constants.NetworkConstants.PAGE_SIZE
 import com.mhmd.core.domain.ApiResponse
 import com.mhmd.core.domain.DataState
 import com.mhmd.core.domain.Pagination
@@ -13,6 +14,7 @@ class InsertMovies(
 
     suspend fun execute(
         page: Int, movies: List<Movie>,
+        pageSize: Int = PAGE_SIZE,
         totalResultsRemote: Int? = null,
         totalPagesRemote: Int? = null
     ): DataState<Pagination<Movie>> =
@@ -30,7 +32,12 @@ class InsertMovies(
                 )
 
             is ApiResponse.Success -> {
-                val result = GetLocalMovies(serviceLocal).execute(page = page,totalResultsRemote, totalPagesRemote)
+                val result = GetLocalMovies(serviceLocal).execute(
+                    page = page,
+                    pageSize,
+                    totalResultsRemote,
+                    totalPagesRemote
+                )
                 result
             }
         }

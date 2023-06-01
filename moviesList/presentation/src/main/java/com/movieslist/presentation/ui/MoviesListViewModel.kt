@@ -2,14 +2,24 @@ package com.movieslist.presentation.ui
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.util.fastForEachIndexed
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mhmd.constants.NetworkConstants
 import com.mhmd.core.domain.DataState
 import com.mhmd.core.domain.ProgressBarState
 import com.mhmd.core.domain.Queue
 import com.mhmd.core.domain.UIComponent
 import com.mhmd.core.domain.UiState
 import com.mhmd.core.util.Logger
+import com.movieslist.domain.IsFamily
+import com.movieslist.domain.IsFriend
+import com.movieslist.domain.IsPublic
+import com.movieslist.domain.Movie
+import com.movieslist.domain.Owner
+import com.movieslist.domain.PhotoId
+import com.movieslist.domain.PhotoUrl
+import com.movieslist.domain.Title
 import com.movieslist.interactors.GetMovies
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -59,9 +69,25 @@ class MoviesListViewModel(
                     }
 
                     is DataState.Success -> {
+                        val pureMovies = dataState.data?.results ?: listOf()
+                        val moviesWithAds: MutableList<Movie> = mutableListOf()
+                        pureMovies.fastForEachIndexed { index, movie ->
+                            if (index != 0 && index % 5 == 0)
+                                moviesWithAds.add(
+                                    Movie(
+                                        PhotoId("0"), owner = Owner(""), title = Title(""),
+                                        photoUrl = PhotoUrl(NetworkConstants.AD_IMAGE_URL),
+                                        isFamily = IsFamily(false),
+                                        isFriend = IsFriend(false),
+                                        isPublic = IsPublic(false)
+                                    )
+                                )
+                            moviesWithAds.add(movie)
+                        }
                         state.value =
                             UiState.Success(
                                 state = currentState.copy(
+                                    moviesWithAds = moviesWithAds,
                                     movies = dataState.data?.results ?: listOf(),
                                     totalPages = dataState.data?.totalPages ?: 0
                                 )
@@ -105,11 +131,28 @@ class MoviesListViewModel(
                     }
 
                     is DataState.Success -> {
+                        val pureMovies = currentState.movies.plus(
+                            dataState.data?.results ?: listOf()
+                        )
+                        val moviesWithAds: MutableList<Movie> = mutableListOf()
+                        (pureMovies).fastForEachIndexed { index, movie ->
+                            if (index != 0 && index % 5 == 0)
+                                moviesWithAds.add(
+                                    Movie(
+                                        PhotoId("0"), owner = Owner(""), title = Title(""),
+                                        photoUrl = PhotoUrl(NetworkConstants.AD_IMAGE_URL),
+                                        isFamily = IsFamily(false),
+                                        isFriend = IsFriend(false),
+                                        isPublic = IsPublic(false)
+                                    )
+                                )
+                            moviesWithAds.add(movie)
+                        }
                         state.value = UiState.Success(
                             state = currentState.copy(
-                                movies = currentState.movies.plus(
-                                    dataState.data?.results ?: listOf()
-                                ), page = currentState.page + 1
+                                moviesWithAds = moviesWithAds,
+                                movies = pureMovies,
+                                page = currentState.page + 1
                             )
                         )
                     }

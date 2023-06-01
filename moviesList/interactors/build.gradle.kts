@@ -9,6 +9,7 @@ plugins {
 dependencies {
     "implementation"(project(Modules.core))
     "implementation"(project(Modules.moviesListDomain))
+    "implementation"(project(Modules.constants))
 
     "implementation"(Kotlinx.coroutinesCore) // need for flows
 

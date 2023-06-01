@@ -20,13 +20,13 @@ import java.nio.charset.StandardCharsets
 
 @ExperimentalComposeUiApi
 @ExperimentalAnimationApi
-fun NavGraphBuilder.addMovesList(
+fun NavGraphBuilder.addMoviesList(
     navController: NavController,
     imageLoader: ImageLoader,
     width: Int,
 ) {
     composable(
-        route = Screen.MovesList.route,
+        route = Screen.MoviesList.route,
         exitTransition = {
             slideOutHorizontally(
                 targetOffsetX = { -width },

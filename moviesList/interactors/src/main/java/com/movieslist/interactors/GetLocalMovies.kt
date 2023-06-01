@@ -1,5 +1,6 @@
 package com.movieslist.interactors
 
+import com.mhmd.constants.NetworkConstants
 import com.mhmd.core.domain.ApiResponse
 import com.mhmd.core.domain.DataState
 import com.mhmd.core.domain.Pagination
@@ -13,12 +14,13 @@ class GetLocalMovies(
 
     suspend fun execute(
         page: Int,
+        pageSize: Int = NetworkConstants.PAGE_SIZE,
         totalResultsRemote: Int? = null,
         totalPagesRemote: Int? = null
     ): DataState<Pagination<Movie>> =
 
         when (val getResult =
-            serviceLocal.getLocalMovies(page, totalResultsRemote, totalPagesRemote)) {
+            serviceLocal.getLocalMovies(page, pageSize,totalResultsRemote, totalPagesRemote)) {
             is ApiResponse.Fail ->
                 DataState.Error(
                     uiComponent = UIComponent.Dialog(
