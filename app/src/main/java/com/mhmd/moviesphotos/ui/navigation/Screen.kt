@@ -13,8 +13,8 @@ sealed class Screen(val route: String, val arguments: List<NamedNavArgument>) {
         arguments = emptyList()
     )
 
-    object MovesList : Screen(
-        route = "movesList",
+    object MoviesList : Screen(
+        route = "moviesList",
         arguments = emptyList()
     )
 

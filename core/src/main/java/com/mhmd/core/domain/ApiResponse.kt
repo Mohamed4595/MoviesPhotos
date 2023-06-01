@@ -17,6 +17,6 @@ sealed class ApiResponse<T> {
 fun HttpRequestBuilder.pathUrl(path: String) {
     url {
         takeFrom(NetworkConstants.BASE_URL)
-        path("", path)
+        path(path)
     }
 }
