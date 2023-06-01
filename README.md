@@ -2,7 +2,9 @@
   a sample app that displays a list that presents the movie's photos as a list using Flickr APIs.
   
 # Screens
+<img src="https://github.com/Mohamed4595/MoviesPhotos/blob/master/images/splash.jpg" width="25%"> <img src="https://github.com/Mohamed4595/MoviesPhotos/blob/master/images/movies_dark.jpg" width="25%"> <img src="https://github.com/Mohamed4595/MoviesPhotos/blob/master/images/image_dark.jpg" width="25%"> 
 
+<img src="https://github.com/Mohamed4595/MoviesPhotos/blob/master/images/movies_light.jpg" width="25%"> <img src="https://github.com/Mohamed4595/MoviesPhotos/blob/master/images/image_light.jpg" width="25%"> 
 
 # Features:
 1. Kotlin
