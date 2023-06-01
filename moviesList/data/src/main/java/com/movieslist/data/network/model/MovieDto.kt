@@ -1,4 +1,4 @@
-package com.movieslist.data.model
+package com.movieslist.data.network.model
 
 import com.movieslist.domain.IsFamily
 import com.movieslist.domain.IsFriend
@@ -34,6 +34,7 @@ fun MovieDto.toMovie(): Movie? {
     return if (id.isNullOrBlank() || secret.isNullOrBlank() || server.isNullOrBlank() || farm == null)
         null
     else Movie(
+        photoId = PhotoId(id),
         photoUrl = getPhotoUrl(
             photoId = PhotoId(id),
             photoFarm = PhotoFarm(farm),

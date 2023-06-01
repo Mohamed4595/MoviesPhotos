@@ -2,6 +2,7 @@ package com.mhmd.moviesphotos.ui
 
 import android.app.Application
 import com.mhmd.moviesphotos.di.AppModule
+import com.mhmd.moviesphotos.di.CacheModule
 import com.mhmd.moviesphotos.di.CoilModule
 import com.mhmd.moviesphotos.di.MoviesModule
 import com.mhmd.moviesphotos.di.NetworkModule
@@ -14,7 +15,7 @@ class BaseApplication : Application() {
         startKoin {
             androidContext(this@BaseApplication)
             modules(
-                listOf(AppModule, CoilModule, NetworkModule, MoviesModule)
+                listOf(AppModule, CoilModule, NetworkModule, CacheModule, MoviesModule)
             )
         }
     }

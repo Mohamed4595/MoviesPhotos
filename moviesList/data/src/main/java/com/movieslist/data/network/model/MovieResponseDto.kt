@@ -1,4 +1,4 @@
-package com.movieslist.data.model
+package com.movieslist.data.network.model
 
 import com.mhmd.core.domain.PaginationDto
 import com.movieslist.domain.IsFamily
