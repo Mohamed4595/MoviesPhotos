@@ -1,8 +1,5 @@
 package com.mhmd.moviesphotos.di
 
-import com.movieslist.data.MoviesServiceImpl
-import com.movieslist.domain.MoviesService
-import com.movieslist.interactors.GetMovies
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.features.json.JsonFeature

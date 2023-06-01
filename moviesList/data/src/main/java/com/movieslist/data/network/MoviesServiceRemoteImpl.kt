@@ -1,4 +1,4 @@
-package com.movieslist.data
+package com.movieslist.data.network
 
 import com.mhmd.constants.NetworkConstants
 import com.mhmd.constants.NetworkPramsConstants
@@ -8,20 +8,20 @@ import com.mhmd.core.domain.Pagination
 import com.mhmd.core.domain.pathUrl
 import com.mhmd.core.domain.toFailedResponse
 import com.mhmd.core.domain.toPagination
-import com.movieslist.data.EndPoints.MOVIE_SERVICES_REST
-import com.movieslist.data.model.MovieResponseDto
-import com.movieslist.data.model.toMovie
+import com.movieslist.data.network.EndPoints.MOVIE_SERVICES_REST
+import com.movieslist.data.network.model.MovieResponseDto
+import com.movieslist.data.network.model.toMovie
 import com.movieslist.domain.Movie
-import com.movieslist.domain.MoviesService
+import com.movieslist.domain.MoviesServiceRemote
 import io.ktor.client.HttpClient
 import io.ktor.client.call.receive
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.statement.HttpResponse
 
-class MoviesServiceImpl(private val client: HttpClient) : MoviesService {
+class MoviesServiceRemoteImpl(private val client: HttpClient) : MoviesServiceRemote {
 
-    override suspend fun getMovies(
+    override suspend fun getRemoteMovies(
         page: Int
     ): ApiResponse<Pagination<Movie>> {
 

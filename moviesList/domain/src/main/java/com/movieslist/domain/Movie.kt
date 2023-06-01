@@ -32,6 +32,7 @@ value class IsFamily(val value: Boolean)
 
 
 data class Movie(
+    val photoId: PhotoId,
     val owner: Owner,
     val title: Title,
     val photoUrl: PhotoUrl,
