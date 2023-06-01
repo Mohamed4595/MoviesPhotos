@@ -33,7 +33,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun SplashScreen(
-    navigateToMatchesScreen: () -> Unit,
+    navigateToMoviesScreen: () -> Unit,
 ) {
     val scope = rememberCoroutineScope()
 
@@ -79,7 +79,7 @@ fun SplashScreen(
     LaunchedEffect(key1 = true) {
         scope.launch {
             delay(3500)
-            navigateToMatchesScreen()
+            navigateToMoviesScreen()
         }
     }
 }

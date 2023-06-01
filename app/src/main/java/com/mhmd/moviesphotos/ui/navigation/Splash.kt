@@ -44,8 +44,8 @@ fun NavGraphBuilder.addSplash(
         }
     ) {
         SplashScreen(
-            navigateToMatchesScreen = {
-                navController.navigate(Screen.MovesList.route) {
+            navigateToMoviesScreen = {
+                navController.navigate(Screen.MoviesList.route) {
                     popUpTo(Screen.Splash.route) {
                         inclusive = true
                     }

@@ -5,5 +5,6 @@ apply {
 
 
 dependencies {
+    "implementation"(project(Modules.constants))
     "implementation"(project(Modules.core))
 }

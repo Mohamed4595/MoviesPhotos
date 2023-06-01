@@ -17,7 +17,7 @@ android {
         targetSdk = Android.targetSdk
         versionCode = Android.versionCode
         versionName = Android.versionName
-        testInstrumentationRunner = "com.eplmatches.app.CustomTestRunner"
+        testInstrumentationRunner = "com.mhmd.app.CustomTestRunner"
     }
 
     buildTypes {

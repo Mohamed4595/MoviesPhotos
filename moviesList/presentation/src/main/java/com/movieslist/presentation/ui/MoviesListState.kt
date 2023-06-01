@@ -8,6 +8,7 @@ import com.movieslist.domain.Movie
 
 data class MoviesListState(
     val movies: List<Movie> = listOf(),
+    val moviesWithAds: List<Movie> = listOf(),
     val isLoadingNextPage: ProgressBarState = ProgressBarState.Idle,
     val page: Int = 1,
     val totalPages: Int = 0,
